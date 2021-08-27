@@ -119,7 +119,9 @@ plt.figure(figsize=(10,5))
 sns.set(font="NanumGothic", # 폰트 나눔고딕
         rc={"axes.unicode_minus":False}, # 마이너스 부호 깨짐 방지
         style='darkgrid') # 검은 그리드
-plt.bar(data4["시"],data4["돈"])
+#plt.bar(data4["시"],data4["돈"])
+order_1 = data5.groupby('시')['돈'].median().sort_values(ascending = False).index
+sns.boxplot(x='시',y='돈',data=data5,orient='v',order= order_1)
 plt.show()
 
 
